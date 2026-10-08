@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyBuddy AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🎓 StudyBuddy <span>AI</span></div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#profile">Profile</a>
+        <a href="#tasks">Tasks</a>
+        <a href="#planner">AI Planner</a>
+        <a href="#chat">Ask AI</a>
+    </nav>
+</header>
+
+
+<!-- HOME -->
+
+<section id="home" class="hero">
+
+    <div class="hero-text">
+
+        <p class="tag">🤖 PERSONAL AI STUDY ASSISTANT</p>
+
+        <h1>
+            Study smarter.<br>
+            <span>Stress less.</span>
+        </h1>
+
+        <p>
+            StudyBuddy AI creates a personalized study plan
+            based on your friend's assignments, exams and free time.
+        </p>
+
+        <a href="#profile" class="btn">
+            Get Started →
+        </a>
+
+    </div>
+
+    <div class="hero-card">
+
+        <div class="ai-icon">🤖</div>
+
+        <h3>AI Recommendation</h3>
+
+        <p id="heroRecommendationText">
+            You have a Mathematics assignment
+            due tomorrow.
+        </p>
+
+        <div class="priority" id="heroPriorityBadge">
+            🔥 High Priority
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROFILE -->
+
+<section id="profile" class="section">
+
+    <h2>👋 Tell us about your friend</h2>
+
+    <div class="form-card">
+
+        <input
+            type="text"
+            id="studentName"
+            placeholder="Friend's name"
+        >
+
+        <input
+            type="text"
+            id="course"
+            placeholder="Course (e.g. B.Tech CSE)"
+        >
+
+        <input
+            type="number"
+            id="studyHours"
+            placeholder="Available study hours"
+            min="1"
+            max="24"
+        >
+
+        <button onclick="saveProfile()" class="btn">
+            Save Profile
+        </button>
+
+        <p id="profileMessage"></p>
+
+    </div>
+
+</section>
+
+
+<!-- TASKS -->
+
+<section id="tasks" class="section">
+
+    <h2>📝 Add Study Task</h2>
+
+    <div class="task-form">
+
+        <input
+            type="text"
+            id="taskName"
+            placeholder="Task / Assignment"
+        >
+
+        <input
+            type="date"
+            id="deadline"
+        >
+
+        <select id="difficulty">
+
+            <option value="Low">Low Difficulty</option>
+            <option value="Medium" selected>Medium Difficulty</option>
+            <option value="High">High Difficulty</option>
+
+        </select>
+
+        <button onclick="addTask()" class="btn">
+            + Add Task
+        </button>
+
+    </div>
+
+
+    <div id="taskList" class="task-list"></div>
+
+</section>
+
+
+<!-- AI PLANNER -->
+
+<section id="planner" class="section planner">
+
+    <h2>🤖 AI Study Planner</h2>
+
+    <p>
+        Let AI analyze your tasks and create today's plan.
+    </p>
+
+    <button onclick="generatePlan()" class="btn">
+        ✨ Generate AI Plan
+    </button>
+
+    <div id="aiPlan" class="ai-result">
+
+        <p>
+            Your AI-generated study plan will appear here.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ASK AI -->
+
+<section id="chat" class="section">
+
+    <h2>💬 Ask StudyBuddy AI</h2>
+
+    <p>Ask anything about your study schedule.</p>
+
+    <div class="chat-box">
+
+        <div class="chat-suggestions">
+            <button type="button" class="chip-btn" onclick="sendQuickPrompt('What should I study first?')">🎯 What to study first?</button>
+            <button type="button" class="chip-btn" onclick="sendQuickPrompt('Give me a focus study tip')">💡 Study tips</button>
+            <button type="button" class="chip-btn" onclick="sendQuickPrompt('How should I structure my hours?')">⏱️ Schedule help</button>
+            <button type="button" class="chip-btn" onclick="sendQuickPrompt('How many tasks are pending?')">📊 Task summary</button>
+        </div>
+
+        <div id="messages" class="messages">
+
+            <div class="bot message">
+                🤖 Hi! I'm StudyBuddy AI. How can I help you?
+            </div>
+
+        </div>
+
+        <div class="chat-input">
+
+            <input
+                type="text"
+                id="userQuestion"
+                placeholder="Example: What should I study today?"
+                onkeydown="handleEnter(event)"
+            >
+
+            <button onclick="askAI()">
+                Send
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <h3>🎓 StudyBuddy AI</h3>
+
+    <p>
+        Built for a friend • Powered by AI • Privacy focused
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
